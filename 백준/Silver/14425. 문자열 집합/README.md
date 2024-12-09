@@ -34,3 +34,42 @@
 
  <p>첫째 줄에 M개의 문자열 중에 총 몇 개가 집합 S에 포함되어 있는지 출력한다.</p>
 
+
+#코드
+```cpp
+#include<iostream>
+#include<unordered_set>
+#include<string>
+
+int main() {
+    int n,m;
+    std::cin >> n >> m;
+
+    std::unordered_set<std::string> s;
+
+    // 집합 S에 문자열 입력
+    for(int i = 0; i < n; ++i) {
+        std::string str;
+        std::cin >> str;
+        s.insert(str);
+    }
+
+    // 검색할 문자열
+    int count = 0;
+    for(int i = 0; i < m; ++i) {
+        std::string str;
+        std::cin >> str;
+        if(s.find(str) != s.end()) {
+            ++count;
+        }
+    }
+
+    std::cout << count << std::endl;
+
+    return 0;
+}
+```
+
+## 설명
+
+탐색에 필요한 값만 unordered_set 해시구조의 set 자료구조에 저장하고 겸색할 문자는 입력과 동시에 저장되어있던 set과 비교하여 카운트를 증가시키는 방법
