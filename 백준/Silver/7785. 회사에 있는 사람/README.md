@@ -32,3 +32,46 @@
 
  <p>현재 회사에 있는 사람의 이름을 사전 순의 역순으로 한 줄에 한 명씩 출력한다.</p>
 
+```cpp
+
+#include <iostream>
+#include <unordered_map>
+#include <set>
+#include <string>
+
+
+int main() {
+    
+    int n;
+    std::cin >> n;
+    std::unordered_map<std::string,bool> log;
+
+    for(int i = 0; i < n;++i) {
+        std::string name, action;
+        std::cin >> name >> action;
+
+        if(action == "enter") {
+            log[name] = true;
+        }
+        else if(action == "leave") {
+            log[name] = false;
+        }
+    }
+
+    std::set<std::string, std::greater<std::string>> present;
+    for(const auto& [name,isIn] : log) {
+        if(isIn) {
+            present.insert(name);
+        }
+    }
+
+    for(const auto& name : present) {
+        std::cout << name << "\n";
+    }
+
+    return 0;
+}
+```
+
+# 설명
+
