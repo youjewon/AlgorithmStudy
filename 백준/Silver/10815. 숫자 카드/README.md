@@ -28,3 +28,89 @@
 
  <p>첫째 줄에 입력으로 주어진 M개의 수에 대해서, 각 수가 적힌 숫자 카드를 상근이가 가지고 있으면 1을, 아니면 0을 공백으로 구분해 출력한다.</p>
 
+
+#코드
+```cpp
+#include<iostream>
+#include<vector>
+#include<algorithm>
+
+int main() {
+	int n,m;
+    std::cin >> n;
+
+    std::vector<int> cards(n);
+    for(int i = 0; i < n; ++i)  {
+        std::cin >> cards[i];
+    }
+    // 정렬
+    std::sort(cards.begin(),cards.end());
+	
+    std::cin >> m;
+    std::vector<int> queries(m);
+    for(int i = 0;i < m;++i) {
+        std::cin >> queries[i]; 
+    }
+
+    for(int i = 0; i < m; ++i) {
+        if(std::binary_search(cards.begin(),cards.end(),queries[i])) {
+            std::cout << 1 << " ";
+        }
+        else {
+            std::cout << 0 << " ";
+        }
+    }
+    std::cout << "\n";
+    return 0;
+}
+```
+
+##설명
+
+정렬 + 이진 탐색을 이용한 풀이 방법으로 입력받은 cards 배열(vector)를 sort함수로 정렬을 시키고 이후 binary_search함수로 비교할 배열을 조건으로 값이 있으면 1 없으면 0 을 출력하도록 작성
+
+
+#다른 방법
+```cpp
+#include <iostream>
+#include <unordered_set>
+#include <vector>
+
+int main() {
+    int n, m;
+    std::cin >> n;
+
+    // 상근이가 가진 숫자 카드
+    std::unordered_set<int> cards;
+    for (int i = 0; i < n; ++i) {
+        int card;
+        std::cin >> card;
+        cards.insert(card);
+    }
+
+    // 확인할 숫자 카드
+    std::cin >> m;
+    std::vector<int> queries(m);
+    for (int i = 0; i < m; ++i) {
+        std::cin >> queries[i];
+    }
+
+    // 결과 출력
+    for (int i = 0; i < m; ++i) {
+        if (cards.find(queries[i]) != cards.end()) {
+            std::cout << 1 << " ";
+        } else {
+            std::cout << 0 << " ";
+        }
+    }
+    std::cout << "\n";
+
+    return 0;
+}
+```
+
+## 설명
+
+unordered_set 는 해쉬 구조로 정렬을 필요로 하지 않으며 중복 제외하고 저장하는 형태로 처음 입력값으로 가지며 이후 find 함수를 이용하여 찾는 풀이방법임. 
+
+
