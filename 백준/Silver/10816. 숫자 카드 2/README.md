@@ -28,3 +28,38 @@
 
  <p>첫째 줄에 입력으로 주어진 M개의 수에 대해서, 각 수가 적힌 숫자 카드를 상근이가 몇 개 가지고 있는지를 공백으로 구분해 출력한다.</p>
 
+# 코드
+```cpp
+#include<iostream>
+#include<vector>
+#include<unordered_map>
+
+int main() {
+	int n,m;
+	std::cin >> n;
+	std::unordered_map<int, int> card_count;
+	for (int i = 0; i < n; ++i) {
+		int card;
+		std::cin >> card;
+		card_count[card]++;
+	}
+
+	std::cin >> m;
+	std::vector<int> queries(m);
+	
+	for (int i = 0; i < m; ++i) {
+		std::cin >> queries[i];
+	}
+
+	for (int i = 0; i < m; ++i) {
+		std::cout << card_count[queries[i]] << " ";
+	}
+	std::cout << " ";
+
+	return 0;
+}
+```
+
+# 설명
+unordered_map 해시 방식의 배열을 만들어 입력받은 card 번 쨰의 값만 증가시켜 저장한후 m개의 카드 위치의 증가값만 가져오면 되는 문제
+card에 증가되지 않은 값음 자동으로 0으로 초기화되어 0으로 출력됨
