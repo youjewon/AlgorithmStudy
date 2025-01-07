@@ -125,3 +125,7 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+
+## ps
+중복값과 정렬 map에 대한 이해도를 높일 수 있는 좋은 문제였음
