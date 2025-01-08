@@ -70,3 +70,6 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+>
+## p.s
+이번 문제는 자료형의 범위를 이해하고있는지 알아보는 문제로 2번째 테스트 케이스의 범위가 int, long, long long의 범위를 넘어서는 값을 받을경우 아스키코드로 접근하는 방법을 생각하는것이 중요한 포인트라고 볼수 있다.
