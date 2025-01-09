@@ -75,3 +75,6 @@
 </code></pre></div>
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+>
+# p.s
+std::reverse는 algorithm 라이브러리에서 사용가능하며 사용방법으로는 reverse(str.begin(),str.end()); 로 문자열의 시작 값에서 끝값-1(/0 을 피한값)을 뒤집는 함수이다. 이를 이용하여 문제를 해결할때 queries[i][1] 값을 그대로 사용하면 -1 계산된 위치를 리버스 하기 때문에 꼭 1을 더해줌으로서 원하는 값을 도출해야한다.
