@@ -74,3 +74,6 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+>
+#p.s
+이 문제는 등비와 등차를 구분하는 조건을 찾는 문제로 구분 방법은 common[1] - common[0] 값이 common[2] - common[1] 값이 같으면 등차 다르면 등비 
