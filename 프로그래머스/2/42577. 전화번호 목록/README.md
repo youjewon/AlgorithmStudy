@@ -84,4 +84,5 @@
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
 >
 #p.s
+
 sort 는 문자열을 아스키코드 값으로 비교하고 같은 값에 대해서는 문자열의 길이기 짧은 문자를 우선으로 정렬하는 정렬알고리즘 이다.
