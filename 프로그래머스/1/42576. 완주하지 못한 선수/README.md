@@ -76,7 +76,7 @@
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
 >
-#p.s
+#ps
 본인은 unordered_map을 사용해서 키 값의 개수로 문제를 해결함 다른사람 풀이에서 출발자와 완주자의 배열을 정렬하고 중복이름이 있어도 완주 배열과 다른며 리턴하는 방식을 사용
 ```cpp
 #include <string>
