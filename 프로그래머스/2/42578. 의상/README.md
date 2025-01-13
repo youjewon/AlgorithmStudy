@@ -106,3 +106,63 @@ face에 해당하는 의상이 crow_mask, blue_sunglasses, smoky_makeup이므로
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+
+# p.s
+
+unordered_map을 이용한 문제 이해
+
+```cpp
+for (const auto& item : clothes) {
+    string type = item[1]; // 의상 종류는 벡터의 두 번째 요소
+    clothesCount[type]++;
+}
+```
+clothes 의 데이터 구조는 2차원 벡터 vector<vector<string>> 타입 입니다.
+각 항목은 (1차원 벡터)[의상 이름, 의상 종류] 형태로 저장됨
+
+여기서 item은 1차원 벡터를 가르킴 / 1차원 벡터의 2번째 요소 item[1](의상의 종류)를 type 변수에 저장
+종류들의  갯수를 unordered_map<string, int> clothesCount; 에 저장
+
+* 의상 종류가 처음 등장:
+    * clothesCount에 해당 종류가 없으면, 자동으로 초기값 0으로 삽입 후 1로 증가합니다.
+* 이미 있는 의상 종류:
+    * 해당 종류의 기존 개수를 가져와 1을 더합니다.
+
+clothesCount에 결과
+```cpp
+clothesCount = {
+    {"eyewear", 2},
+    {"top", 1}
+};
+```
+
+```cpp
+for (const auto& pair : count) {
+    combinations *= (pair.second + 1); // (개수 + 1) 곱하기
+}
+```
+데이터 구조는 
+
+* unordered_map의 각 요소를 나타냄.
+* pair.first: 키(의상 종류), 예: "eyewear", "top".
+* pair.second: 값(해당 종류의 의상 개수), 예: 2, 1.
+
+
+* pair.second:
+    * 특정 의상 종류의 의상 개수
+* pair.second + 1:
+    * 각 의상 종류에서 의상을 "착용하지 않는 경우"를 추가한 것.
+
+    * "eyewear" 종류에 2개의 의상이 있다면, 경우의 수는 다음과 같습니다:
+        * 착용하지 않음.
+        * 첫 번째 의상 착용.
+        * 두 번째 의상 착용.
+        * 따라서, 경우의 수는 2(의상 개수) + 1(착용하지 않는 경우).
+
+### 곱의 의미
+의상 조합의 총 경우의 수를 저장하는 변수
+각 종류의 의상에서 가능한 경우의 수를 곱해 전체 경우의 수를 계산 . 경우의 수는 서로 독립적이므로 곱셈으로 조합하여 계산
+
+### 예외 처리
+모든 의상에서 "착용하지 않는 경우는 제외", 최소 하나는 착용해야 하므로 결과에서 1을 뺌
