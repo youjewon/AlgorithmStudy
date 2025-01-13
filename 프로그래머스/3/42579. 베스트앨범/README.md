@@ -104,3 +104,16 @@ plays  = {600, 500, 1500, 800}
 4th iteration: genrePlayCount["classic"] += 800 -> {"pop": 2100, "classic": 1300}
 ```
 목적: 장르별로 노래 정보를 저장합니다.
+```text
+1st iteration: genreSongs["pop"].emplace_back(600, 0)
+-> {"pop": [(600, 0)]}
+
+2nd iteration: genreSongs["classic"].emplace_back(500, 1)
+-> {"pop": [(600, 0)], "classic": [(500, 1)]}
+
+3rd iteration: genreSongs["pop"].emplace_back(1500, 2)
+-> {"pop": [(600, 0), (1500, 2)], "classic": [(500, 1)]}
+
+4th iteration: genreSongs["classic"].emplace_back(800, 3)
+-> {"pop": [(600, 0), (1500, 2)], "classic": [(500, 1), (800, 3)]}
+```
