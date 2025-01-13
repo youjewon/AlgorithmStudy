@@ -83,3 +83,24 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+#p.s
+이걸 어떻게 알아요~
+```cpp
+for (int i = 0; i < genres.size(); i++) {
+    genrePlayCount[genres[i]] += plays[i];
+    genreSongs[genres[i]].emplace_back(plays[i], i);
+}
+```
+목적: 장르별로 재생 횟수의 합계를 계산
+
+```text
+genres = {"pop", "classic", "pop", "classic"}
+plays  = {600, 500, 1500, 800}
+
+1st iteration: genrePlayCount["pop"] += 600     -> {"pop": 600}
+2nd iteration: genrePlayCount["classic"] += 500 -> {"pop": 600, "classic": 500}
+3rd iteration: genrePlayCount["pop"] += 1500    -> {"pop": 2100, "classic": 500}
+4th iteration: genrePlayCount["classic"] += 800 -> {"pop": 2100, "classic": 1300}
+```
+목적: 장르별로 노래 정보를 저장합니다.
